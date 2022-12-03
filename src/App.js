@@ -6,7 +6,7 @@ import './App.css';
 function App() {
 
   const [movie, setMovie] = useState([]);
-  const movieUrl = "https://www.themoviedb.org/t/p/w220_and_h330_face"
+  const [userSelection, setUserSelection] = useState([]);
   
   useEffect( () => {
 
@@ -17,22 +17,21 @@ function App() {
         }
     })
       .then((res) => {
-
-        const moviePoster = res.data.results.map((getMovie) => {
-          return movieUrl + getMovie.poster_path
-        })
-
-        setMovie(moviePoster);
-        console.log(movie);
+        const popularMoviesData = res.data.results
+        setMovie(popularMoviesData);
       })
+
   }, [])
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Current Popular Movies</h1>
-        <MovieFrame movie={movie}/>
+    <div className="app wrapper">
+      <header>
+        <div className="movieInfo">
+          <h1></h1>
+        </div>
       </header>
+
+      <MovieFrame movie={movie}/>
     </div>
   )
 }
