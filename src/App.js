@@ -5,9 +5,12 @@ import './App.css';
 
 function App() {
 
-  const [movie, setMovie] = useState([]);
-  const [userSelection, setUserSelection] = useState([]);
-  
+
+  const [movieData, setMovieData] = useState([]);
+  const [userChoice, setUserChoice] = useState({});
+
+
+
   useEffect( () => {
 
     axios({
@@ -17,21 +20,36 @@ function App() {
         }
     })
       .then((res) => {
-        const popularMoviesData = res.data.results
-        setMovie(popularMoviesData);
+        setMovieData(res.data.results)
+        console.log(movieData)
+        setUserChoice(res.data.results[0])
       })
 
   }, [])
 
+
   return (
     <div className="app wrapper">
-      <header>
-        <div className="movieInfo">
-          <h1></h1>
-        </div>
+
+      <header className='movieInfo'>
+        <h1>{userChoice.title}</h1>
+        <p>{userChoice.overview}</p>
+        <p>{userChoice.release_date}</p>
+        <p>{userChoice.vote_average}/10</p>
       </header>
 
-      <MovieFrame movie={movie}/>
+      <ul className="movieContainer">
+        {movieData.map((movie) => {
+          return (
+            <MovieFrame
+              key={movie.id}
+              movie={movie}
+              setUserChoice={setUserChoice}
+            />
+          )
+        })}
+      </ul>
+
     </div>
   )
 }
