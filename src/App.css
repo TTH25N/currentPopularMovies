@@ -13,6 +13,8 @@
 
 html {
   font-size: 62.5%;
+  color: white;
+  background: black;
 }
 
 h1, h2, h3, h4, p, ul {
@@ -32,8 +34,9 @@ img {
 /* Header */
 .movieInfo {
   height: 50rem;
-  border: 0.3rem solid black;
+  border: 0.3rem solid white;
   margin: 5rem 0;
+  background: grey;
 }
 
 
@@ -50,7 +53,16 @@ img {
 }
 
 .movieContainer li p {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   padding: 1rem 0;
+}
+
+button {
+  border: 0.1rem solid white;
+  background: none;
+  font-size: 1.5rem;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 

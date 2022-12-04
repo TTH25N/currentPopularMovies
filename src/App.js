@@ -1,18 +1,16 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import YouTube from 'react-youtube';
 import MovieFrame from './MovieFrame';
 import './App.css';
 
 function App() {
 
-
   const [movieData, setMovieData] = useState([]);
   const [userChoice, setUserChoice] = useState({});
+  const [trailer, setTrailer] = useState("");
 
-
-
-  useEffect( () => {
-
+  const getMovieData = () => {
     axios({
       url: "https://api.themoviedb.org/3/movie/popular",
         params: {
@@ -20,12 +18,18 @@ function App() {
         }
     })
       .then((res) => {
+        // console.log(res)
         setMovieData(res.data.results)
-        console.log(movieData)
         setUserChoice(res.data.results[0])
       })
+  } 
+
+  useEffect( () => {
+    
+    getMovieData();
 
   }, [])
+
 
 
   return (
@@ -36,6 +40,9 @@ function App() {
         <p>{userChoice.overview}</p>
         <p>{userChoice.release_date}</p>
         <p>{userChoice.vote_average}/10</p>
+        <YouTube 
+          videoId={trailer}
+        />
       </header>
 
       <ul className="movieContainer">
@@ -45,6 +52,7 @@ function App() {
               key={movie.id}
               movie={movie}
               setUserChoice={setUserChoice}
+              setTrailer={setTrailer}
             />
           )
         })}
