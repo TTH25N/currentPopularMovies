@@ -9,6 +9,7 @@ function App() {
   const [movieData, setMovieData] = useState([]);
   const [userChoice, setUserChoice] = useState({});
   const [trailer, setTrailer] = useState("");
+  const [landingPage, setLandingPage] = useState("");
 
   const getMovieData = () => {
     axios({
@@ -18,11 +19,14 @@ function App() {
         }
     })
       .then((res) => {
-        // console.log(res)
+        // setMovieData will be used to map through all the current popular movies and display them on the page
         setMovieData(res.data.results)
-        setUserChoice(res.data.results[0])
+
+        // setUserChoice will be used to store the movie that the user has selected corresponding to the "See details" that is clicked on
+        setUserChoice(res.data.results)
       })
   } 
+
 
   useEffect( () => {
     
@@ -31,21 +35,34 @@ function App() {
   }, [])
 
 
-
   return (
-    <div className="app wrapper">
+    <div className='app wrapper'>
 
-      <header className='movieInfo'>
-        <h1>{userChoice.title}</h1>
-        <p>{userChoice.overview}</p>
-        <p>{userChoice.release_date}</p>
-        <p>{userChoice.vote_average}/10</p>
-        <YouTube 
-          videoId={trailer}
-        />
+      <header className='movieInfoAndVideo'>
+        <div className='landingPage'>
+            <p>Welcome to Miniplex! A place where you can find movie trailers for the latest popular movies. Select see details for any of the movies below!</p>
+        </div>
+
+        <div className='movieInfo'>
+          <h1 className='title'>{userChoice.title}</h1>
+          <p className='overview'>{userChoice.overview}</p>
+          <p className='releaseDate'>{userChoice.release_date}</p>
+          <p className='rating'>{userChoice.vote_average}</p>
+        </div>
+
+        <div className='videoContainer'>
+          <YouTube 
+            className={'youtubePlayer'}
+            videoId={trailer}
+            const opts={{
+              width: '100%',
+              height: '100%'
+            }}
+          />
+          </div>
       </header>
 
-      <ul className="movieContainer">
+      <ul className='movieContainer'>
         {movieData.map((movie) => {
           return (
             <MovieFrame

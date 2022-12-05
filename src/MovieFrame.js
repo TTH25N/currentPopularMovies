@@ -16,7 +16,12 @@ const MovieFrame = (props) => {
           })
             .then((res) => {
                 console.log(res)
-                props.setTrailer(res.data.results[0].key)
+
+                const officialTrailerVid = res.data.results.filter((vid) => {
+                    return vid.name === "Official Trailer" || vid.type === "Trailer"
+                })
+
+                props.setTrailer(officialTrailerVid[0].key)
             })
     }
 // 

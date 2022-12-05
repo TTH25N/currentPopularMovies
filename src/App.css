@@ -1,10 +1,6 @@
 
 /* General */
 
-.app {
-  text-align: center;
-}
-
 .wrapper {
   width: 90%;
   margin: 0 auto;
@@ -14,7 +10,7 @@
 html {
   font-size: 62.5%;
   color: white;
-  background: black;
+  background: rgba(0, 0, 0);
 }
 
 h1, h2, h3, h4, p, ul {
@@ -32,24 +28,44 @@ img {
 
 
 /* Header */
-.movieInfo {
+
+.movieInfoAndVideo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 50rem;
-  border: 0.3rem solid white;
   margin: 5rem 0;
-  background: grey;
+  background: black;
+  border: 0.5rem solid white;
+  font-size: 2rem;
+  padding: 2.5rem;
 }
 
+/* Video */
+
+.youtubePlayer {
+  width: 60rem;
+  height: 40rem;
+}
+
+.videoContainer {
+  border: 0.5rem solid white;
+}
 
 /* Movie Container */
 
 .movieContainer {
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .movieContainer li {
-  width: 20%;
-  padding: 2.5rem 0;
+  width: 13%;
+  margin: 2rem;
+  background: black;
+  padding: 2rem;
+  border: 0.5rem solid white;
 }
 
 .movieContainer li p {
@@ -64,5 +80,11 @@ button {
   color: white;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  color:black;
+  background: white;
 }
 
