@@ -62,18 +62,20 @@ function App() {
 
       <h2 className='movieListTitle'>Here's What's Playing</h2>
 
-      <ul className='movieListContainer wrapper'>
-        {movieData.map((movie) => {
-          return (
-            <MovieFrame
-              key={movie.id}
-              movie={movie}
-              setUserChoice={setUserChoice}
-              setTrailer={setTrailer}
-            />
-          )
-        })}
-      </ul>
+      <main>
+        <ul className='movieListContainer wrapper'>
+          {movieData.map((movie) => {
+            return (
+              <MovieFrame
+                key={movie.id}
+                movie={movie}
+                setUserChoice={setUserChoice}
+                setTrailer={setTrailer}
+              />
+            )
+          })}
+        </ul>
+      </main>
 
       <footer>
         <div className="wrapper">
