@@ -38,6 +38,7 @@ h1 {
   text-align: center;
   text-shadow: 0 0 1rem #fff;
   margin-top: 2.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .movieInfoAndVideo {
@@ -50,6 +51,7 @@ h1 {
   padding: 2.5rem;
   font-size: 2rem;
   border: 0.4rem solid red;
+  box-shadow: 1rem 1rem 2rem red;
 }
 
 .movieInfo {
@@ -101,6 +103,7 @@ h1 {
   margin: 1.5rem;
   padding: 1.5rem;
   border: 0.4rem solid red;
+  box-shadow: 0.5rem 0.5rem 2rem red;
 }
 
 .movieListContainer li p {
@@ -138,6 +141,9 @@ footer {
   justify-content: center;
   align-items: center;
   margin-top: 5rem;
+  text-align: center;
+  text-shadow: 0 0 1rem #fff;
+  box-shadow: 0 -1rem 2rem #fff;
 }
 
 
@@ -208,6 +214,7 @@ footer {
   .youtubePlayer {
     width: 65rem;
     height: 32.5rem;
+    margin: 1rem;
   }
 
 }
@@ -224,7 +231,6 @@ footer {
     .youtubePlayer {
       width: 57.5rem;
       height: 27.5rem;
-      margin: 1rem;
     }
 
     /* Movie List */
@@ -249,9 +255,12 @@ footer {
 
     /* Header */
 
+    h1 {
+      font-size: 4.75rem;
+    }
+
     .youtubePlayer {
       width: 47.5rem;
-      /* margin-bottom: 2.5rem; */
     }
 
     .movieInfoAndVideo {
@@ -268,6 +277,101 @@ footer {
       width: 36%;
     }
   
+}
+
+
+@media (max-width: 560px) {
+
+    /* Header */
+
+    h1 {
+      font-size: 4.25rem;
+    }
+
+    .youtubePlayer {
+      width: 40rem;
+    }
+
+    .movieInfoAndVideo {
+      font-size: 1.65rem;
+    }
+
+
+    /* Movie List */
+
+    .movieListTitle {
+      font-size: 3.6rem;
+    }
+
+    .movieListContainer li {
+      width: 30%;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+  /* Header */
+
+  h1 {
+    font-size: 3.6rem;
+  }
+
+  .youtubePlayer {
+    width: 32rem;
+  }
+  
+
+  /* Movie List */
+
+  .movieListTitle {
+    font-size: 3.2rem;
+  }
+
+  /* Footer */
+
+  footer {
+    font-size: 1.75rem;
+  }
+}
+
+
+@media (max-width: 405px) {
+
+  /* Header */
+
+  h1 {
+    font-size: 2.85rem;
+  }
+
+  .youtubePlayer {
+    width: 26rem;
+  }
+
+  .movieInfoAndVideo {
+    font-size: 1.55rem;
+    height: 70rem;
+  }
+
+  .movieInfo {
+    width: 100%;
+  }
+  
+  .rating {
+    width: 2.5rem;
+  }
+
+  /* Movie List */
+
+  .movieListTitle {
+    font-size: 2.5rem;
+  }
+
+  .movieListContainer li {
+    width: 60%;
+  }
+
 }
 
 

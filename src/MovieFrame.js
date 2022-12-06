@@ -20,7 +20,7 @@ const MovieFrame = (props) => {
                 const officialTrailerVid = res.data.results.filter((vid) => {
                     return vid.name === "Official Trailer" || vid.type === "Trailer"
                 })
-
+                console.log(officialTrailerVid[0].key)
                 props.setTrailer(officialTrailerVid[0].key)
             })
     }
