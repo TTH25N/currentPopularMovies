@@ -45,7 +45,6 @@ function App() {
             }
         })
           .then((res) => {
-              console.log(res.data.results);
     
               const landingPageTrailer = res.data.results.filter((landingTrailer) => {
                 return landingTrailer.name === "Official Trailer" || landingTrailer.type === "Trailer"
