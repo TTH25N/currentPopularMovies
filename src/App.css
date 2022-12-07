@@ -1,38 +1,384 @@
-.App {
+/* General */
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+html {
+  font-size: 62.5%;
+  color: #fff;
+  background: #000;
+}
+
+h1, h2, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* Header */
+
+h1 {
+  font-size: 6rem;
+  text-align: center;
+  text-shadow: 0 0 1rem #fff;
+  margin-top: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.movieInfoAndVideo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50rem;
+  margin-top: 2.5rem;
+  margin-bottom: 5rem;
+  padding: 2.5rem;
+  font-size: 2rem;
+  border: 0.4rem solid red;
+  box-shadow: 1rem 1rem 2rem red;
+}
+
+.movieInfo {
+  width: 45%;
+  margin-right: 5rem;
+}
+
+.youtubePlayer {
+  width: 60rem;
+  height: 40rem;
+}
+
+.overview {
+  padding: 2rem 0;
+}
+
+.releaseDate {
+  padding-bottom: 2rem;
+}
+
+.rating {
+  background: red;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  width: 3rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* Movie List */
+
+.movieListTitle {
+  text-align: center;
+  padding-bottom: 2rem;
+  font-size: 4rem;
+  text-shadow: 0 0 1rem #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.movieListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.movieListContainer li {
+  width: 14%;
+  margin: 1.5rem;
+  padding: 1.5rem;
+  border: 0.4rem solid red;
+  box-shadow: 0.5rem 0.5rem 2rem red;
+}
+
+.movieListContainer li p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem 0;
+}
+
+button {
+  color: #fff;
+  background: red;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  color: red;
+  background-color: #fff;
+}
+
+button:focus {
+  color: red;
+  background-color: #fff;
+}
+
+footer {
+  height: 10rem;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 3rem;
+  color: #fff;
+  background: red;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-top: 5rem;
+  text-align: center;
+  text-shadow: 0 0 1rem #fff;
+  box-shadow: 0 -1rem 2rem #fff;
 }
 
-.App-link {
-  color: #61dafb;
+
+/* Media Queries */
+
+@media (max-width: 1320px) {
+
+  /* Header */
+
+  h1 {
+    font-size: 5.6rem;
+  }
+
+  .youtubePlayer {
+    width: 55rem;
+  }
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+@media (max-width: 1180px) {
+
+  /* Header */
+
+  h1 {
+    font-size: 5.4rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .youtubePlayer {
+    width: 50rem;
+  }
+
+  .movieInfoAndVideo {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    font-size: 1.9rem;
+  }
+
+
+  /* Movie List */
+
+  .movieListContainer li {
+    width: 16%;
+  }
+
+}
+
+
+@media (max-width: 1000px) {
+
+  /* Header */
+
+  h1 {
+    font-size: 5.4rem;
+  }
+
+  .movieInfoAndVideo {
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    height: 65rem;
+  }
+
+  .movieInfo {
+    width: 80%;
+    margin-right: 0;
+  }
+
+  .youtubePlayer {
+    width: 65rem;
+    height: 32.5rem;
+    margin: 1rem;
+  }
+
+}
+
+
+@media (max-width: 860px) {
+
+    /* Header */
+
+    h1 {
+      font-size: 5rem;
+    }
+
+    .youtubePlayer {
+      width: 57.5rem;
+      height: 27.5rem;
+    }
+
+    /* Movie List */
+
+    .movieListTitle {
+      font-size: 3.8rem;
+    }
+
+    .movieListContainer li {
+      width: 24%;
+    }
+
+    button {
+      font-size: 1.4rem;
+      padding: 0.75rem 1.75rem;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    /* Header */
+
+    h1 {
+      font-size: 4.75rem;
+    }
+
+    .youtubePlayer {
+      width: 47.5rem;
+    }
+
+    .movieInfoAndVideo {
+      font-size: 1.8rem;
+    }
+
+    .movieInfo {
+      width: 90%;
+    }
+
+    /* Movie List */
+
+    .movieListContainer li {
+      width: 36%;
+    }
+  
+}
+
+
+@media (max-width: 560px) {
+
+    /* Header */
+
+    h1 {
+      font-size: 4.25rem;
+    }
+
+    .youtubePlayer {
+      width: 40rem;
+    }
+
+    .movieInfoAndVideo {
+      font-size: 1.65rem;
+    }
+
+
+    /* Movie List */
+
+    .movieListTitle {
+      font-size: 3.6rem;
+    }
+
+    .movieListContainer li {
+      width: 30%;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+  /* Header */
+
+  h1 {
+    font-size: 3.6rem;
+  }
+
+  .youtubePlayer {
+    width: 32rem;
+  }
+  
+
+  /* Movie List */
+
+  .movieListTitle {
+    font-size: 3.2rem;
+  }
+
+  /* Footer */
+
+  footer {
+    font-size: 1.75rem;
   }
 }
+
+
+@media (max-width: 405px) {
+
+  /* Header */
+
+  h1 {
+    font-size: 2.85rem;
+  }
+
+  .youtubePlayer {
+    width: 26rem;
+  }
+
+  .movieInfoAndVideo {
+    font-size: 1.55rem;
+    height: 70rem;
+  }
+
+  .movieInfo {
+    width: 100%;
+  }
+  
+  .rating {
+    width: 2.5rem;
+  }
+
+  /* Movie List */
+
+  .movieListTitle {
+    font-size: 2.5rem;
+  }
+
+  .movieListContainer li {
+    width: 60%;
+  }
+
+}
+
+
+
+
