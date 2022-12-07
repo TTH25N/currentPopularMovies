@@ -8,7 +8,7 @@ function App() {
 
   const [movieData, setMovieData] = useState([]);
   const [userChoice, setUserChoice] = useState({});
-  const [trailer, setTrailer] = useState("mkomfZHG5q4");
+  const [trailer, setTrailer] = useState("");
 
   const getMovieData = () => {
     axios({
@@ -27,10 +27,39 @@ function App() {
       })
   } 
 
+
   useEffect( () => {
     getMovieData();
 
   }, [])
+
+
+    useEffect( () => {
+
+      const getLandingPageVideo = () => {
+        axios({
+          url: `https://api.themoviedb.org/3/movie/${movieData[0].id}/videos`,
+            params: {
+              api_key: "02a015f767f49fbd46124014022d6a5c",
+              append_to_response: "videos"
+            }
+        })
+          .then((res) => {
+              console.log(res.data.results);
+    
+              const landingPageTrailer = res.data.results.filter((landingTrailer) => {
+                return landingTrailer.name === "Official Trailer" || landingTrailer.type === "Trailer"
+              })
+    
+              setTrailer(landingPageTrailer[0].key)
+          })
+      }
+
+    if(movieData.length !== 0) {
+      getLandingPageVideo()
+    }
+
+  }, [movieData])
 
 
   return (
