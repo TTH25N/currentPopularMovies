@@ -9,6 +9,7 @@ function App() {
   const [movieData, setMovieData] = useState([]);
   const [userChoice, setUserChoice] = useState({});
   const [trailer, setTrailer] = useState("");
+  const [backdrop, setBackdrop] = useState();
 
   const getMovieData = () => {
     axios({
@@ -20,6 +21,7 @@ function App() {
       .then((res) => {
         // setMovieData will be used to map through all the current popular movies and display them on the page
         setMovieData(res.data.results)
+        console.log(res)
 
         // setUserChoice will be used to store the movie that the user has selected corresponding to the "See details" that is clicked on
         setUserChoice(res.data.results[0])
@@ -49,7 +51,6 @@ function App() {
               const landingPageTrailer = res.data.results.filter((landingTrailer) => {
                 return landingTrailer.name === "Official Trailer" || landingTrailer.type === "Trailer"
               })
-    
               setTrailer(landingPageTrailer[0].key)
           })
       }

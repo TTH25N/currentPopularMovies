@@ -23,6 +23,8 @@ const MovieFrame = (props) => {
                 console.log(officialTrailerVid[0].key)
                 props.setTrailer(officialTrailerVid[0].key)
             })
+
+            window.scroll(0, 0);
     }
 // 
 
