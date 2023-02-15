@@ -9,7 +9,6 @@ function App() {
   const [movieData, setMovieData] = useState([]);
   const [userChoice, setUserChoice] = useState({});
   const [trailer, setTrailer] = useState("");
-  const [backdrop, setBackdrop] = useState();
 
   const getMovieData = () => {
     axios({
